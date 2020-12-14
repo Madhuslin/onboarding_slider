@@ -1,8 +1,7 @@
 name: onboarding_slider
 description: A library that walks a user through multiple on-boarding screens in a simple and easy way
 version: 0.0.1
-author: Madhura.KS<ksmadhura@gmail.com>
-author: Mini.M<minisri321@gmail.com>
+author: Madhura.KS,Mini.M<ksmadhura@gmail.com,minisri321@gmail.com>
 homepage: https://github.com/Madhuslin/onboarding_slider.git
 
 environment:
