@@ -14,7 +14,7 @@ class OnboardingSliderScreen extends StatefulWidget {
   //loop
   final bool loopPages;
   final Duration loopDuration;
-  
+
   //skip button
   final bool showSkip;
   final ValueChanged<String> skipClicked;
@@ -27,8 +27,8 @@ class OnboardingSliderScreen extends StatefulWidget {
     @required this.pages,
     @required this.bgColor,
     @required this.themeColor,
-    this.loopDuration = const Duration(seconds:5),
-    this.loopPages= true,
+    this.loopDuration = const Duration(seconds: 5),
+    this.loopPages = true,
     this.skipClicked,
     this.showSkip = true,
     this.getStartedClicked,
@@ -38,7 +38,6 @@ class OnboardingSliderScreen extends StatefulWidget {
   @override
   OnboardingSliderScreenState createState() => OnboardingSliderScreenState();
 }
-
 
 class OnboardingSliderScreenState extends State<OnboardingSliderScreen> {
   final PageController _pageController = PageController(initialPage: 0);
@@ -67,27 +66,38 @@ class OnboardingSliderScreenState extends State<OnboardingSliderScreen> {
     // TODO: implement initState
     super.initState();
     //start timer
-    if(widget.loopPages){
-    _timer = new Timer.periodic(widget.loopDuration,(Timer timer) {changeSlides(); },);
+    if (widget.loopPages) {
+      _timer = new Timer.periodic(
+        widget.loopDuration,
+        (Timer timer) {
+          changeSlides();
+        },
+      );
     }
   }
 
   @override
   void dispose() {
-    if(widget.loopPages){_timer.cancel();}
+    if (widget.loopPages) {
+      _timer.cancel();
+    }
     super.dispose();
   }
 
-  void changeSlides(){
+  void changeSlides() {
     _autochanging = true;
-   if(_currentPage == widget.pages.length - 1){
-     _currentPage = 0;
-     _pageController.animateToPage(0, duration: Duration(milliseconds: 500),curve: Curves.ease);
-   } else {
+    if (_currentPage == widget.pages.length - 1) {
+      _currentPage = 0;
+      _pageController.animateToPage(0,
+          duration: Duration(milliseconds: 500), curve: Curves.ease);
+    } else {
       _currentPage += 1;
-      _pageController.nextPage( duration: Duration(milliseconds: 500),curve: Curves.ease,);
-   } 
-    setState((){});
+      _pageController.nextPage(
+        duration: Duration(milliseconds: 500),
+        curve: Curves.ease,
+      );
+    }
+    setState(() {});
   }
 
   Widget _indicator(bool isActive) {
@@ -103,7 +113,6 @@ class OnboardingSliderScreenState extends State<OnboardingSliderScreen> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,23 +127,24 @@ class OnboardingSliderScreenState extends State<OnboardingSliderScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-
-                widget.showSkip?  Container(
-                    alignment: Alignment.centerRight,
-                    child: FlatButton(
-                      onPressed: () {
-                        widget.skipClicked("Skip Tapped");
-                      },
-                      child: Text(
-                        'Skip',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ): Container(),
+                  widget.showSkip
+                      ? Container(
+                          alignment: Alignment.centerRight,
+                          child: FlatButton(
+                            onPressed: () {
+                              widget.skipClicked("Skip Tapped");
+                            },
+                            child: Text(
+                              'Skip',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        )
+                      : Container(),
                   Container(
                     height: 500.0,
                     color: Colors.transparent,
@@ -143,8 +153,10 @@ class OnboardingSliderScreenState extends State<OnboardingSliderScreen> {
                         controller: _pageController,
                         onPageChanged: (int page) {
                           //to differentiate manual scroll
-                          if(_autochanging == false){
-                            if(widget.loopPages){_timer.cancel();}
+                          if (_autochanging == false) {
+                            if (widget.loopPages) {
+                              _timer.cancel();
+                            }
                           }
                           _autochanging = false;
                           setState(() {
@@ -186,8 +198,10 @@ class OnboardingSliderScreenState extends State<OnboardingSliderScreen> {
           ),
         ),
       ),
-      bottomSheet: (_currentPage == widget.pages.length - 1) && widget.showgetStarted == true
-          ? _showGetStartedButton() : Text(''),
+      bottomSheet: (_currentPage == widget.pages.length - 1) &&
+              widget.showgetStarted == true
+          ? _showGetStartedButton()
+          : Text(''),
     );
   }
 
@@ -259,6 +273,4 @@ class OnboardingSliderScreenState extends State<OnboardingSliderScreen> {
   void _getStartedTapped() {
     widget.getStartedClicked("Get Started Tapped");
   }
-
-
 }

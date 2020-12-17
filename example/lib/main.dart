@@ -30,8 +30,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
         bgColor: Colors.white,
         loopPages: true,
         showSkip: true,
-        showgetStarted : true,
-        loopDuration :const Duration(seconds:1),
+        showgetStarted: true,
+        loopDuration: const Duration(seconds: 1),
         themeColor: const Color(0xFFf74269),
         pages: pages,
         skipClicked: (value) {
