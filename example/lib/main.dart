@@ -30,8 +30,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
         bgColor: Colors.white,
         loopPages: true,
         showSkip: true,
-        showgetStarted : true,
-        loopDuration :const Duration(seconds:1),
+        showgetStarted: true,
+        loopDuration: const Duration(seconds: 1),
         themeColor: const Color(0xFFf74269),
         pages: pages,
         skipClicked: (value) {
@@ -57,19 +57,22 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
             'Easily find your grocery items and you will get delivery in wide range',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: 'assets/onboarding1.png'),
+        imagePath: null,
+        svgPath: 'assets/slider1.svg'),
     OnboardingSliderModel(
         title: 'Pick Up or Delivery',
         description:
             'We make ordering fast, simple and free-no matter if you order online or cash',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: 'assets/onboarding2.png'),
+        imagePath: 'assets/onboarding2.png',
+        svgPath: ""),
     OnboardingSliderModel(
         title: 'Pay quick and easy',
         description: 'Pay for order using credit or debit card',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: 'assets/onboarding3.png'),
+        imagePath: "",
+        svgPath: ""),
   ];
 }

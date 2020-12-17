@@ -1,6 +1,6 @@
 name: onboarding_slider
 description: A library that walks a user through multiple on-boarding screens in a simple and easy way
-version: 0.0.1
+version: 0.0.2
 author: Madhura.KS,Mini.M<ksmadhura@gmail.com,minisri321@gmail.com>
 homepage: https://github.com/Madhuslin/onboarding_slider.git
 
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^0.19.2+1
 
 dev_dependencies:
   flutter_test:

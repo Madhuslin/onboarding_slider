@@ -6,11 +6,13 @@ class OnboardingSliderModel {
   Color titleColor;
   Color descripColor;
   String imagePath;
+  String svgPath;
 
   OnboardingSliderModel({
     @required this.title,
     @required this.description,
-    @required this.imagePath,
+    this.imagePath = "",
+    this.svgPath = "",
     @required this.titleColor,
     @required this.descripColor,
   });
